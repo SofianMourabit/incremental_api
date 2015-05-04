@@ -1,0 +1,24 @@
+<?php
+
+use App\Lesson;
+use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
+
+class DatabaseSeeder extends Seeder {
+
+	/**
+	 * Run the database seeds.
+	 *
+	 * @return void
+	 */
+	public function run()
+	{
+        Lesson::truncate();
+		Model::unguard();
+
+		$this->call('LessonsTableSeeder');
+
+        $this->command->info('Lessons table seeded!');
+	}
+
+}
